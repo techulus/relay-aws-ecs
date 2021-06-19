@@ -18,11 +18,12 @@ sess = boto3.Session(
     aws_secret_access_key=relay.get(D.aws.connection.secretAccessKey),
     aws_session_token=session_token
 )
-client = sess.client('ecs')
 
 region = relay.get(D.aws.region)
 clusterName = relay.get(D.clusterName)
 serviceName = relay.get(D.serviceName)
+
+client = sess.client('ecs', region_name=region)
 
 try:
     response = client.update_service(
@@ -30,6 +31,6 @@ try:
         service=serviceName,
         forceNewDeployment=True
     )
-    print("Force new deployment {}".format(serviceName))
+    print("Operation completed {}".format(serviceName))
 except Exception as e:
     print(e)
