@@ -37,7 +37,7 @@ build:
   kind: Docker
 
 publish:
-  repository: docker.pkg.github.com/techulus/relay-aws-ecs/aws-ecs-step-force-new-deployment
+  repository: arjunkomath/aws-ecs-step-force-new-deployment
 
 schemas:
   spec: 
@@ -50,7 +50,7 @@ examples:
       apiVersion: v1
       kind: Step
       name: force-ecs-service-deployment
-      image: docker.pkg.github.com/techulus/relay-aws-ecs/aws-ecs-step-force-new-deployment
+      image: arjunkomath/aws-ecs-step-force-new-deployment
       spec:
         aws:
           connection: !Connection { type: aws, name: my-aws-account } 
